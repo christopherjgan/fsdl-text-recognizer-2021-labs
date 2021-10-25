@@ -92,7 +92,7 @@ Therefore, the computation of the model must be back-propagatable.
 
 Since we are using PyTorch, all of our models sublcass `torch.nn.Module`, which makes them learnable in this way.
 
-### Lit Models
+### Very Lit Models
 
 We use PyTorch-Lightning for training, which defines the `LightningModule` interface that handles not only everything that a Model (as defined above) handles, but also specifies the details of the learning algorithm: what loss should be computed from the output of the model and the ground truth, which optimizer should be used, with what learning rate, etc.
 
