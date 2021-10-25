@@ -1,4 +1,4 @@
-# Lab 1: Basic project structure for recognizing MNIST
+# Jack Gan's Lab 1: Basic project structure for recognizing MNIST
 
 To go through the main project structure in place, let's train an MLP on MNIST data.
 
