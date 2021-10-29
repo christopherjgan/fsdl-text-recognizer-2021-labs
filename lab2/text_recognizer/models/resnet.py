@@ -19,6 +19,7 @@ class ResBlock(nn.Module):
     def __init__(self, input_channels: int, output_channels: int) -> None:
         super().__init__()
         self.conv = nn.Conv2d(input_channels, output_channels, kernel_size=3, stride=1, padding=1)
+        self.conv2 = nn.Conv2d(output_channels, output_channels, kernel_size=3, stride=1, padding=1)
         self.relu = nn.ReLU()
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -33,13 +34,9 @@ class ResBlock(nn.Module):
         torch.Tensor
             of dimensions (B, C, H, W)
         """
-        print(f"x = {x.shape}")
         c1 = self.conv(x)
-        print(f"c1 = {c1.shape}")
         r = self.relu(c1)
-        print(f"r = {r.shape}")
-        c2 = self.conv(r)
-        print(f"c2 = {c2.shape}")
+        c2 = self.conv2(r)
         output = self.relu(c2 + x)
         return output
 

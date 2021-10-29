@@ -33,11 +33,8 @@ class ConvBlock(nn.Module):
         torch.Tensor
             of dimensions (B, C, H, W)
         """
-        print(f"x = {x.shape}")
         c = self.conv(x)
-        print(f"c = {c.shape}")
         r = self.relu(c)
-        print(f"r = {r.shape}")
         return r
 
 
