@@ -11,7 +11,7 @@ FC_DIM = 128
 IMAGE_SIZE = 28
 
 
-class ConvBlock(nn.Module):
+class ResBlock(nn.Module):
     """
     Simple 3x3 conv with padding size 1 (to leave the input size unchanged), followed by a ReLU.
     """
@@ -34,14 +34,17 @@ class ConvBlock(nn.Module):
             of dimensions (B, C, H, W)
         """
         print(f"x = {x.shape}")
-        c = self.conv(x)
-        print(f"c = {c.shape}")
-        r = self.relu(c)
+        c1 = self.conv(x)
+        print(f"c1 = {c1.shape}")
+        r = self.relu(c1)
         print(f"r = {r.shape}")
-        return r
+        c2 = self.conv(r)
+        print(f"c2 = {c2.shape}")
+        output = self.relu(c2 + x)
+        return output
 
 
-class CNN(nn.Module):
+class RESNET(nn.Module):
     """Simple CNN for recognizing characters in a square image."""
 
     def __init__(self, data_config: Dict[str, Any], args: argparse.Namespace = None) -> None:
@@ -54,8 +57,8 @@ class CNN(nn.Module):
         conv_dim = self.args.get("conv_dim", CONV_DIM)
         fc_dim = self.args.get("fc_dim", FC_DIM)
 
-        self.conv1 = ConvBlock(input_dims[0], conv_dim)
-        self.conv2 = ConvBlock(conv_dim, conv_dim)
+        self.conv1 = ResBlock(input_dims[0], conv_dim)
+        self.conv2 = ResBlock(conv_dim, conv_dim)
         self.dropout = nn.Dropout(0.25)
         self.max_pool = nn.MaxPool2d(2)
 
