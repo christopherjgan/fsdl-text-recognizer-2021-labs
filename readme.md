@@ -1,3 +1,18 @@
+# Completed Full Stack Deep Learning
+- Deployed MNIST model to
+[proof.png]
+
+
+
+
+
+
+
+
+
+
+
+
 # Full Stack Deep Learning Spring 2021 Labs
 
 Welcome!
