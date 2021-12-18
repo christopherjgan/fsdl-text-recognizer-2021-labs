@@ -1,6 +1,6 @@
 # Completed Full Stack Deep Learning
 - Deployed MNIST model to
-![alt text](http://url/to/proof.png)
+![alt text](proof.png)
 
 
 
