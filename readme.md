@@ -1,14 +1,9 @@
 # Completed Full Stack Deep Learning
-- Deployed MNIST model to
+- [Wrote MLP model from scratch, using only NumPy library](https://github.com/christopherjgan/fsdl-text-recognizer-2021-labs/blob/main/MLP_scratch/MLP.ipynb)
+- Deployed MNIST MLP model to AWS Lambda
+- 
+
 ![alt text](proof.png)
-
-
-
-
-
-
-
-
 
 
 
